@@ -18,18 +18,23 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
 <title>welcome to the admin panel login</title>
 </head>
 <body>
-  <?php if(!empty($message)){ echo $message; } ?>
-    <form action="admin_login.php" method="post">
-      <label for="">User:</label>
-      <input type="text" name="username" value=""><br><br>
-      <label for="">Password:</label>
-      <input type="password" name="password" value=""><br>
-      <input type="submit" name="submit" value="SHOW THE MONEY">
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 formDiv">
+      <h2>Please Sign In</h2>
+      <?php if(!empty($message)){ echo $message; } ?>
+      <form action="admin_login.php" method="post">
+        <label for="">User:</label><br>
+        <input type="text" name="username" value=""><br><br>
+        <label for="">Password:</label><br>
+        <input type="password" name="password" value=""><br><br>
+      <input type="submit" name="submit" id="submit" value="Sign In">
     </form>
-    <a href="admin_create_user.php">create user</a>
-
+    </div>
+  </div>
 </body>
 </html>

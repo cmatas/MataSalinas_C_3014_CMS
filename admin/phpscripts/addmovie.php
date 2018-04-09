@@ -11,9 +11,24 @@
         $message = "It didn't work";
         return $message;
       }
+      $size = getimagesize($targetpath);
+      echo $size[1]; // check the php.net for getimagesize
+
+      list( $width,$height ) = getimagesize($targetpath);
+      $newwidth = 350;
+      $newheight = 600;
+
+      $thumb = imagecreatetruecolor( $newwidth, $newheight );
+      $source = imagecreatefromjpeg($th_copy);
+
+      imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+      imagejpeg( $thumb, $th_copy, 100 );
+
+      $out_image=addslashes(file_get_contents($th_copy));
+
       // add to database
       $covname = $cover['name'];
-      $qstring = "INSERT INTO tbl_movie VALUES(NULL, '{$covname}', '{$title}', '{$year}', '{$runtime}', '{$storyline}', '{$trailer}', '{$release}')";
+      $qstring = "INSERT INTO tbl_movie VALUES(NULL, '{$covname}', 'th_{$covname}', '{$title}', '{$year}', '{$runtime}', '{$storyline}', '{$trailer}', '{$release}')";
       $result = mysqli_query($link, $qstring);
       // echo $qstring;
       if($result) {
@@ -29,20 +44,8 @@
       redirect_to("admin_index.php");
     }
   }else{
-    echo "Sorry, no can do";
-  }
-    // $size = getimagesize($targetpath);
-    // echo $size[1]; // check the php.net for getimagesize
-    list( $width,$height ) = getimagesize($targetpath);
-    $newwidth = 350;
-    $newheight = 350;
+echo "Sorry, no can do";
+}
 
-    $thumb = imagecreatetruecolor( $newwidth, $newheight );
-    $source = imagecreatefromjpeg($th_copy);
-
-    imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-    imagejpeg( $thumb, $th_copy, 100 );
-
-    $out_image=addslashes(file_get_contents($th_copy));
 }
 ?>

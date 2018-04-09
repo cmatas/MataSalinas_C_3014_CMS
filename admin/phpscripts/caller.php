@@ -9,6 +9,9 @@ if(isset($_GET['caller_id'])){
   } else if($dir == "delete") {
     $id = $_GET['id'];
     deleteuser($id);
+  } else if($dir == "delmovie") {
+    $id = $_GET['id'];
+    deletemovie($id);
   } else {
     echo "caller is was passed incorrectly";
   }

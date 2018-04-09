@@ -68,11 +68,14 @@ require_once('phpscripts/connect.php');
         <img src="images/hi.png" alt="Hello">
         <p>Last time active <?php echo $_SESSION['user_date'];  ?></p>
         <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1">
             <a href="admin_addmovie.php">Add movie</a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
             <a href="admin_editmovie.php">Edit movie</a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="admin_deletemovie.php">Delete movie</a>
           </div>
         </div>
 

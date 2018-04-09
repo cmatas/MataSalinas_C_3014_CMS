@@ -1,8 +1,8 @@
 <?php
   require_once('phpscripts/config.php');
+  $tbl = "tbl_genre";
+  $genQuery = getAll($tbl);
 
-    $tbl = "tbl_movie";
-    $getMovies = getAll($tbl);
 
 ?>
 <!DOCTYPE html>
@@ -37,36 +37,20 @@
       <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 header"> -->
       <div class="row">
         <h2>Edit a movie</h2>
+      </div>
+      <div class="row">
         <?php
-        // if(isset($_POST['submit'])){
-        //         $tbl = $_POST['tbl'];
-        //         $col = $_POST['col'];
-        //         $id = $_POST['id'];
-        //         // $img = $_FILE[$tbl.'_img'];
-        //         echo "<h2 class=\"sectionTitle\">Edit</h2>";
-        //         $redult = single_edit($tbl, $col, $id);
-        //         // $imgadded = addimg($img);
-        //       }
-        ?>
-
-      </div>
-        <div class="row">
-      <?php
-      while ($row = mysqli_fetch_array($getMovies)) {
-        echo "<div class=\"col-xs-4 col-sm-4 col-md-3 col-lg-3\">
-
-            <img class=\"img-responsive\" src=\"../images/{$row['movie_poster']}\" alt=\"{$row['movie_name']}\"><br>
-            <a href=\"admin_editmovie_form.php?id={$row['movie_id']}\">Edit</a><br><br>
-          </div>";
-         }
-       ?>
-      </div>
-
-
-
+        if(isset( $_GET['id'])) {
+      		//get the movie
+      		$tbl = "tbl_movie";
+      		$col = "movie_id";
+      		$id = $_GET['id'];
+      		$getMovie = single_edit($tbl, $col, $id);
+      	}
+    	 ?>
+     </div>
       <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> -->
         <!-- <a href="admin_index">Back</a> -->
-      <!-- </div> -->
   </div>
 </div>
 

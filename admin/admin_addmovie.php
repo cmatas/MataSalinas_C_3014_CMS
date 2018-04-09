@@ -38,7 +38,7 @@
     float: right;
   }
   h2 {
-    float: left;
+    /* float: left; */
     margin-bottom: 40px;
   }
   .header {

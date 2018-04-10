@@ -1,7 +1,7 @@
 <?php
 require_once('phpscripts/connect.php');
   require_once('phpscripts/config.php');
-  // confirm_logged_in();
+  confirm_logged_in();
  ?>
 
 <!DOCTYPE html>

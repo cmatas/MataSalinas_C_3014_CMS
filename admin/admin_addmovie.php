@@ -1,5 +1,6 @@
 <?php
   require_once('phpscripts/config.php');
+  confirm_logged_in();
 
   $tbl = "tbl_genre";
   $genQuery = getAll($tbl);
